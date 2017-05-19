@@ -1,11 +1,9 @@
 ### Test Script
 
-```
 check env-t
 ```
 ls()
 source("cachematrix.R")
-
 tst1 <- matrix(c(1,-1,1,2),2)
 ```
 allocate memory, create methods, set an initial matrix
@@ -48,6 +46,7 @@ tst2 %*% cacheSolve( mCM )
 check env-t
 ```
 ls()
+```
 
 ### Test Result
 
