@@ -1,41 +1,52 @@
 ### Test Script
 
--- check env-t
+```
+check env-t
+```
 ls()
 source("cachematrix.R")
 
 tst1 <- matrix(c(1,-1,1,2),2)
-
--- allocate memory, create methods, set an initial matrix
-mCM <- makeCacheMatrix( tst1 )
-
--- validate
+```
+allocate memory, create methods, set an initial matrix
+```
+> mCM <- makeCacheMatrix( tst1 )
+```
+validate
+```
 mCM
 mCM$get()
 mCM$getinv()
-
--- solve 1st matrix, on 2nd call the result must be from cache 
+```
+solve 1st matrix, on 2nd call the result must be from cache 
+```
 cacheSolve( mCM )
 cacheSolve( mCM )
-
--- next matrix
+```
+next matrix
+```
 tst2 <- matrix(c(1,-1,0,2),2)
-
--- set to memory using set()-method
+```
+set to memory using set()-method
+```
 mCM$set( tst2 )
-
--- validate
+```
+validate
+```
 mCM$get()
 mCM$getinv()
-
--- solve 2nd matrix, on 2nd call the result must be from cache 
+```
+solve 2nd matrix, on 2nd call the result must be from cache 
+```
 cacheSolve( mCM )
 cacheSolve( mCM )
-
--- validate the result is actually inverted
+```
+validate the result is actually inverted
+```
 tst2 %*% cacheSolve( mCM )
-
--- check env-t
+```
+check env-t
+```
 ls()
 
 ### Test Result
